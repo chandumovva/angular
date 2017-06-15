@@ -1,0 +1,63 @@
+<form class="form-horizontal" name="create" novalidate ng-controller="loginctrl">
+    <div class="container">
+        <div class="form-group" ng-class="{ 'has-error' : submitted && create.email.$invalid }">
+            <label for=" inputEmail3 " class="col-sm-2 control-label ">UserName</label>
+            <div class="col-sm-10">
+                <input type="email " class="form-control" ng-model="obj.email " id="email " placeholder="Email" name="email" required ng-maxlength="56" maxlength="56">
+                <div ng-show="submitted && create.email.$invalid" class="help-block ">
+                    <p ng-show=" create.email.$error.required ">Email is required</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group " ng-class="{ 'has-error' : submitted && create.pswd.$invalid }">
+            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" ng-model="obj.password" id="password" placeholder="Password" name="pswd" required ng-minlength="6" minlength="6">
+                <div ng-show="submitted &&  create.pswd.$invalid" class="help-block">
+                    <p ng-show=" create.pswd.$error.required">Password is required</p>
+                    <p ng-show=" create.pswd.$error.minlength ">Password must be minimum of 6</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : submitted && create.confirmpswd.$invalid }">
+            <label for=" inputPassword3 " class="col-sm-2 control-label ">Confirm Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" name="confirmpswd" ng-model="obj.confirmpassword" id="confirmpassword" placeholder="Confirm Password" required ng-minlength="6" minlength="6">
+                <div ng-show="submitted && create.confirmpswd.$invalid " class="help-block ">
+                    <p ng-show="create.confirmpswd.$error.required ">Confirm Password is required</p>
+                    <p ng-show="create.confirmpswd.$error.minlength ">Password must be minimum of 6</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group " ng-class="{ 'has-error' : submitted && create.firstname.$invalid }">
+            <label for="inputPassword3" class="col-sm-2 control-label">First Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="firstname" ng-model="obj.firstname" id="firstname" placeholder="First Name" required ng-pattern="/^[a-zA-Z]+$/" maxlength="50">
+                <div ng-show="submitted &&  create.firstname.$invalid" class="help-block">
+                    <p ng-show=" create.firstname.$error.required">Firstname is required</p>
+                    <p ng-show=" create.firstname.$error.pattern">Only text is allowed</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : submitted && create.lastname.$invalid }">
+            <label for=" lastname " class="col-sm-2 control-label ">Last Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="lastname" ng-model="obj.lastname " id="lastname " placeholder="Last Name" ng-pattern="/^[a-zA-Z]+$/" maxlength="50">
+                <div ng-show="submitted &&  create.lastname.$invalid" class="help-block">
+                    <p ng-show=" create.lastname.$error.pattern">Only text is allowed</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : submitted && create.dob.$invalid }">
+            <label for="lastname" class="col-sm-2 control-label">Date of Birth</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" name="dob" ng-model="obj.datevalue" id="dob" placeholder="Date" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default" ng-click="signup(create.$valid)">Sign Up</button>
+                <button confirmed-click="clear(obj)" ng-confirm-click="Would you like to clear?">Clear</button>
+            </div>
+        </div>
+</form>
